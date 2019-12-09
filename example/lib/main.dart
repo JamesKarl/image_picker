@@ -17,15 +17,18 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+//    initPlatformState();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
+  Future<void> pickImage({int maxSize = 1, bool camera = false, bool crop = false}) async {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      platformVersion = await ImagePicker.platformVersion;
+      List<String> paths =
+          await ImagePicker.pick(maxSize: maxSize, camera: camera, crop: crop);
+      platformVersion = paths.join('\n');
+      print(platformVersion);
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -48,7 +51,41 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  pickImage(camera: true);
+                },
+                child: Text('拍照'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  pickImage(camera: true, crop: true);
+                },
+                child: Text('拍照裁剪'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  pickImage(maxSize: 1);
+                },
+                child: Text('单选'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  pickImage(maxSize: 1, crop: true);
+                },
+                child: Text('单选裁剪'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  pickImage(maxSize: 3);
+                },
+                child: Text('多选'),
+              ),
+              Text('$_platformVersion')
+            ],
+          ),
         ),
       ),
     );
