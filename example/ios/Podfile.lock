@@ -1,0 +1,33 @@
+PODS:
+  - CLImagePickerTool (3.1.3)
+  - Flutter (1.0.0)
+  - image_picker (0.0.1):
+    - CLImagePickerTool
+    - Flutter
+    - TZImagePickerController
+  - TZImagePickerController (3.2.6)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - image_picker (from `.symlinks/plugins/image_picker/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CLImagePickerTool
+    - TZImagePickerController
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  image_picker:
+    :path: ".symlinks/plugins/image_picker/ios"
+
+SPEC CHECKSUMS:
+  CLImagePickerTool: 2ef59c6524efd493571a0ee2bc42f445b4c5b2cb
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  image_picker: 5daaee70a4e6b5eeb9e2eff56bde4262a097946a
+  TZImagePickerController: 3900e8d68428ff3a88817efce82ae9e7d9ffebc9
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.7.0.rc.2

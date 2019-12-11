@@ -11,5 +11,6 @@
 @implementation ImagePickerPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   [SwiftImagePickerPlugin registerWithRegistrar:registrar];
+    
 }
 @end
